@@ -1,0 +1,274 @@
+html{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: rgb(48, 50, 60);
+    background: rgba(0,2,8,0.83);
+    /*background: rgb(32,36,40);*/
+    /*padding: 0 8%;*/
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+    color: white;
+  }
+
+
+
+a { text-decoration: none; }
+
+
+
+/* ============== SVG ============== */
+.axis path {
+  stroke: #fefefe;
+}
+
+.tick line {
+  stroke: #bebebe;
+}
+
+.tick text {
+  fill: #bebebe;
+}
+
+#country_city path {
+  stroke: #fefefe;
+}
+
+/* ============== FONT ============== */
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin:0;
+  line-height: 26px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  font-weight: 300;
+}
+
+
+h2 {
+  color: white;
+  font-size: 16px;
+  margin: 0px 0 20px 0;
+  font-weight: 300;
+}
+
+p.validation {
+  color: red;
+}
+
+
+.axis-label {
+  color: #bebebe;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.caption {
+  margin-bottom: 16px;
+  color: #bebebe;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+ .legendThreshold {
+   color: #bebebe;
+   font-size: 12px;
+ }
+
+/* ============== FORMAT ============== */
+
+.centering{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.flex-container{
+  display: flex;
+  justify-content: center;
+}
+
+div.flex-container.row{
+  flex-direction: row;
+
+}
+
+div.flex-container.column{
+  flex-direction: column;
+}
+
+div.heading{
+  padding: 0 10% 2% 10%;
+}
+
+div#chart1{
+  width:1080px;
+  height:500px;
+  margin-top: 32px;
+  /* display:none;
+  opacity: 0; */
+}
+
+.toolTip {
+    position: absolute;
+    display: none;
+    min-width: 80px;
+    height: auto;
+    background: none repeat scroll 0 0 #333333;
+    border: 0.5px solid #6d7f89;
+    padding: 14px;
+    text-align: left;
+}
+
+#introduction{
+  height: 300px;
+  background-image: url('../img/Intro.png');
+  background-size: cover;
+}
+
+#insight1 {
+  margin: 0px auto;
+  height: 600px;
+  background-image: url('../img/insights1_1.png');
+  background-position: center;
+  background-size: cover;
+
+}
+.center-text {
+  margin: 22% auto;
+  width: 36%;
+  padding: 20px;
+  background: rgb(35, 35, 39);
+  /*text-align: center;*/
+
+}
+
+
+#subgroupChart {
+  padding: 5% 2%;
+}
+
+.country-city-container{
+  background-color: rgb(35, 35, 39);
+  padding-top: 48px;
+  margin-right: 32px;
+  border-radius: 8px;
+  height: 640px;
+}
+
+.country-city-chart{
+  display: block;
+  margin: auto;
+}
+
+#sortreset {
+    position: absolute;
+    top: -120%;
+}
+
+/* ============== BUTTON ============== */
+
+.button {
+	background-color:#f1b254;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #f0aa54;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-size:12px;
+  font-weight: 600;
+	padding:6px 20px;
+	text-decoration:none;
+}
+
+.button.secondary{
+  background-color:transparent;
+  color: rgb(255, 128, 0);
+  border:none;
+  font-weight: 400;
+  padding: 4px 0;
+}
+.button.secondary:hover{
+  background-color:transparent;
+  text-decoration: underline;
+}
+
+.button:hover {
+	background-color:#f09d54;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+.button.current{
+  background-color: rgb(48, 50, 60);
+  color: #fff;
+}
+
+/* ============== SELECT BOX ============== */
+.styled-select {
+   background: #ffffff url('../img/ico-dropdown.png') no-repeat 94% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 140px;
+}
+
+.styled-select select {
+  background: transparent;
+   font-size: 14px;
+   border: none;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 168px;
+}
+
+
+
+/* ============== ANIMATION ============== */
+/* REF-https://gist.github.com/wnghdcjfe/05563068f5948433ae9fa8ca7bd800d4 */
+.line {
+        fill: none;
+        stroke: #a0a0a0;
+        stroke-width: 1px;
+        stroke-dasharray:1400;
+        stroke-dashoffset: 1400;
+        animation: dash 1.2s linear alternate forwards;
+    }
+@keyframes dash{
+    from{
+        stroke-dashoffset: 1400;
+    }
+    to{
+        stroke-dashoffset: 0;
+    }
+}
+
+.elementToFadeIn{
+  animation: fadeIn 2.6s linear forwards;
+}
+
+@keyframes fadeIn {
+ 100% { opacity:1; }
+}
+
+.animationDelay1s{
+  animation-delay: 1s;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 1;
+  }
+}

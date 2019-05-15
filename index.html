@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+
+  <!-- meta and title -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Han Yang, Yezhi Deng, Jianshu Li, Hao Wu">
+  <title>Civic Honesty Around the Globe</title>
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- D3v4 -->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://d3js.org/queue.v1.min.js"></script>
+  <script src="https://d3js.org/topojson.v1.min.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.js"></script>
+  <script src="script/d3-tip.js"></script>
+
+  <!-- Local JS -->
+  <script src="script/draw.js"></script>
+
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+
+
+
+<body>
+    <!-- introduction -->
+
+<div id='introduction'>
+<div  style="padding:0 12%;">
+  <div>
+    <h1 style="font-size: 240%; padding: 75px 0px 15px 0px;">Civic Honesty Around the Globe</h1>
+    <!-- <p>Team: Han Yang, Yezhi Deng, Hao Wu, Jianshu Li</p> -->
+    <p style="display:block;">Honesty is not only a social topic in our daily life, but also an essential indicator for economic development and prosperity of a country or area. Alain and his research group conducted worldwide experiment that turned in lost wallets at public and private institutions and measured whether the recipients contacted the owner to return the wallets as the area’s civic honesty.
+    </p>
+  </div>
+</div>
+</div>
+
+
+<!-- city honesty insight -->
+
+<div id='insight1'>
+<div style="padding: 2% 6%;">
+<div class='center-text'>
+<h2 style="font-size:150%;"> Civic honesty <b style="color:rgb(241,90,36) ;">varies around the globe</b></h2>
+<p style="display:block; ">Highest ranked: Switzerland, Norway, Netherlands <br> Lowest ranked: China, Morocco, Peru</p>
+</div>
+</div>
+</div>
+
+
+    <!-- city honesty chart starts -->
+
+<div id='cityChart'>
+  <div style="padding:10% 10% 2% 10%;">
+  <h2 style="font-size:150%; padding:20px 0px 0px 0px;">How does the civic honesty vary in different <b style="color:rgb(241,90,36) ;">countries</b> and <b style="color:rgb(241,90,36) ;">cities</b> ?</h2>
+  </div>
+
+
+  <div class="flex-container row" style="align-items:center;">
+    <div class="country-city-container" style = 'width: 560px'>
+      <div id = 'passVar' value = 'country'></div>
+      <div class = "selector_sort" style = "padding: 2% 10% 2% 10%;">
+
+        <div id="sort" style="position:relative;">
+          <div class="button secondary" id='sortreset' data-val="reset">< Reset to World Rank</div>
+          <p style="display: inline-block;margin-right: 6px;font-weight: 400;">Sort By: </p>
+            <div class="button" data-val="1">With Money</div>
+            <div class="button current" data-val="0">With No Money</div>
+            <div class="button" data-val="-1">Diff of the Two</div>
+        </div>
+      </div>
+      <div id = 'country_city'></div>
+      </div>
+
+    <div id='worldmap'>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+    <!-- city honesty chart ends -->
+
+
+<!-- subgroup insight -->
+
+<div id='insight2'>
+  <div style="padding:10% 10% 2% 10%;">
+  <h2 style="font-size:150%; padding:20px 0px 0px 0px;">What <b style="color:rgb(241,90,36) ;">factors</b> affect civic honesty?</h2>
+  <img alt="insight2" src="img/insight2_2.png" style="width:100%; height:auto;">
+  </div>
+ <!--  <div style="padding:10% 10% 2% 10%;">
+  <h2 style="font-size:150%; padding:20px 0px 0px 0px;">What <b style="color:rgb(241,90,36) ;">factors</b> affect the civic honesty?</h2>
+  <div class="left-text">
+    <p>1. People are more honest if the <b>stakes are higher</b> <br> 2. <b>Women</b> and <b>elder people</b> tend to be more honest</p>
+  </div>
+  </div> -->
+</div>
+
+
+    <!--  chart 2 starts -->
+<div  id='subgroupChart'>
+
+  <div class="container">
+    <div class="heading">
+      <h2 style="font-size:150%; margin-bottom: 24px;">What is the result of <b style="color:rgb(241,90,36) ;">crossed effect</b>?</h2>
+      <div id="selector">
+        <div  class="flex-container row"  style="justify-content:start; margin-bottom: 16px;">
+          <div class="styled-select">
+            <select id="select1" name="select1">
+              <option value="" disabled>Please Select</option>
+              <option value="Gender">Gender</option>
+              <option value="Age">Age</option>
+              <option value="Money" selected>Money</option>
+              <option value="Institutions">Institutions</option>
+            </select>
+          </div>
+            <p style="padding-left:16px; padding-right:16px;"> X </p>
+          <div class="styled-select">
+            <select id="select2" name="select2">
+              <option value="" disabled>Please Select</option>
+              <option value="Gender" selected>Gender</option>
+              <option value="Age">Age</option>
+              <option value="Money">Money</option>
+              <option value="Institutions">Institutions</option>
+            </select>
+            </div>
+            <p id="test" class="validation" style="padding-left:16px;">
+        </div>
+        <button id="submit" type="button" class="button">Refresh</button>
+      </div>
+    </div>
+
+
+    <div class="chart centering" id="chart1">
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+    <!--   chart 2 ends -->
+
+
+
+  <hr style="margin-top:0px; border-bottom:1px solid rgba(255,255,255,0.1); width:100%; opacity:0.2;">
+
+  <footer class="end-nav">
+    <div style="padding:0 5%;">
+            <p style="padding: 0px 0px 15px 0px;"> Source data provided by Cohn, A., Maréchal, M., & Zünd, C. (2018). Civic Honesty Around the Globe.</p>
+          </div>
+
+  </footer>
+  <script src="script/drawmap.js"></script>
+  <script src="script/country_city.js"></script>
+</body>
+</html>
